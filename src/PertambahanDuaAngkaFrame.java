@@ -4,6 +4,9 @@
  */
 
 import javax.swing.JOptionPane;
+import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -16,6 +19,9 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
      */
     public PertambahanDuaAngkaFrame() {
         initComponents();
+        // Set jLabel6 to display the current date
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        jLabel6.setText(sdf.format(new Date()));
     }
 
     /**
@@ -40,6 +46,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         txtHasil = new javax.swing.JTextField();
         btnHapus = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -50,6 +57,11 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         txtAngka1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAngka1ActionPerformed(evt);
+            }
+        });
+        txtAngka1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngka1KeyTyped(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -64,12 +76,14 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new java.awt.GridBagConstraints());
 
+        btnHitung.setBackground(new java.awt.Color(204, 255, 204));
         btnHitung.setText("Hitung!");
         btnHitung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,13 +93,14 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 39;
         jPanel1.add(btnHitung, gridBagConstraints);
 
         jLabel3.setText("Angka Kedua");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(jLabel3, gridBagConstraints);
 
@@ -99,6 +114,11 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         txtAngka2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAngka2ActionPerformed(evt);
+            }
+        });
+        txtAngka2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAngka2KeyTyped(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -123,6 +143,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(txtHasil, gridBagConstraints);
 
+        btnHapus.setBackground(new java.awt.Color(255, 153, 153));
         btnHapus.setText("Hapus!");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +157,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(btnHapus, gridBagConstraints);
 
+        btnKeluar.setBackground(new java.awt.Color(204, 204, 204));
         btnKeluar.setText("Keluar!");
         btnKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,24 +165,32 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 21, 0, 0);
         jPanel1.add(btnKeluar, gridBagConstraints);
 
+        jLabel6.setText("jLabel6");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        jPanel1.add(jLabel6, gridBagConstraints);
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("Aplikasi Penambahan 2 Angka");
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel4.setText("Pemrograman Berbasis Object");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 196, 42, 337);
+        gridBagConstraints.insets = new java.awt.Insets(8, 19, 8, 19);
         jPanel2.add(jLabel4, gridBagConstraints);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
@@ -176,20 +206,37 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
         txtAngka1.setText("");
         txtAngka2.setText("");
         txtHasil.setText("");
+        txtAngka1.requestFocus();
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
-        // Tutup aplikasi
-        System.exit(0);
+        int response = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnKeluarActionPerformed
 
+    private void txtAngka1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngka1KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAngka1KeyTyped
+
     private void txtAngka1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtAngka1ActionPerformed
-        // TODO add your handling code here:
+        txtAngka2.requestFocus();
     }// GEN-LAST:event_txtAngka1ActionPerformed
 
     private void txtAngka2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtAngka2ActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_txtAngka2ActionPerformed
+
+    private void txtAngka2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAngka2KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAngka2KeyTyped
 
     private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnHitungActionPerformed
         try {
@@ -200,11 +247,11 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
             // Validasi apakah input adalah numerik
             if (isNumeric(text1) && isNumeric(text2)) {
                 // Konversi input menjadi angka
-                double number1 = Double.parseDouble(text1);
-                double number2 = Double.parseDouble(text2);
+                int number1 = Integer.parseInt(text1);
+                int number2 = Integer.parseInt(text2);
 
                 // Tambahkan kedua angka
-                double result = number1 + number2;
+                int result = number1 + number2;
 
                 // Tampilkan hasil di txtHasil
                 txtHasil.setText(String.valueOf(result));
@@ -280,6 +327,7 @@ public class PertambahanDuaAngkaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtAngka1;
